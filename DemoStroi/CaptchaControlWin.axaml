@@ -1,0 +1,115 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="DemoStroi.CaptchaControlWin">
+    <Grid ShowGridLines="False"
+                RowDefinitions="0.2*,0.8*,1*,0.8*,*,*,0.2*">
+        
+        <StackPanel
+            
+            Grid.Row="0"
+            Grid.RowSpan="7"></StackPanel>
+        
+            <!--<Border BorderBrush="#498c51" BorderThickness="2" Grid.ColumnSpan="10" Background="#76e383"  ></Border>-->
+            <!--<Border Grid.Row="6" BorderBrush="#498c51" BorderThickness="2" Grid.ColumnSpan="10" Background="#76e383"  ></Border>-->
+            
+            <TextBlock Grid.Row="1"
+                       TextAlignment="Center"
+                       Text="Введите код с картинки"
+                       VerticalAlignment="Center"
+                       FontSize="18"
+                       HorizontalAlignment="Center"
+                       FontFamily="Comic Sans MS">
+              </TextBlock>
+            
+            
+            
+            <StackPanel Grid.Row="2" HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Orientation="Horizontal">
+                
+                <TextBlock
+                    Name="TextBlock1"
+                    FontFamily="Comic Sans MS">
+                    
+                </TextBlock>
+                <TextBlock
+                    Name="TextBlock2"
+                    FontFamily="Comic Sans MS"
+                    >
+                    
+                </TextBlock>
+                <TextBlock
+                    Name="TextBlock3"
+                    FontFamily="Comic Sans MS">
+                    
+                </TextBlock>
+                <TextBlock
+                    Name="TextBlock4"
+                    FontFamily="Comic Sans MS">
+                    
+                </TextBlock>
+                <TextBlock
+                    Name="TextBlock5"
+                    FontFamily="Comic Sans MS">
+                    
+                </TextBlock>
+            </StackPanel>
+            
+            <Border Grid.Row="2" BorderBrush="Black" Height="3" BorderThickness="1.5" Width="70" />
+            
+            <!--<Image Grid.Row="2"
+                   Name="ImageCaptcha"
+                   MaxHeight="200"
+                   MaxWidth="300"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"></Image>-->
+            
+            <TextBox Grid.Row="3"
+                     Name="TextBoxCaptcha"
+                     TextAlignment="Left"
+                     HorizontalAlignment="Center"
+                     VerticalContentAlignment="Center"
+                     Width="200"
+                     FontFamily="Comic Sans MS"
+                     BorderBrush="#498c51"
+                     BorderThickness="2"
+                     Height="40">
+            </TextBox>
+            
+            <Button
+                Grid.Row="4"
+                Content="Обновить картинку"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                BorderBrush="#498c51"
+                Background="White"
+                BorderThickness="2"
+                Click="Button_OnClick"></Button>
+            
+            <Button Grid.Row="5"
+                    Name="ButtonEnterCaptcha"
+                    Content="Продолжить"
+                    FontFamily="Comic SAns MS"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    HorizontalContentAlignment="Center"
+                    Background="CornflowerBlue"
+                    Foreground="Azure"
+                    Click="ButtonEnterCaptcha_OnClick"></Button>
+            
+            <Button Content="Сменить аккаунт"
+                    Grid.Row="5"
+                    Background="White"
+                    BorderBrush="#498c51"
+                    BorderThickness="2"
+                    Name="ButtonChangeAcc"
+                    Click="ButtonChangeAcc_OnClick"
+                    ></Button>
+        </Grid>
+</UserControl>

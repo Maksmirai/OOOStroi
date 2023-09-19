@@ -1,0 +1,67 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net6.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
+        <ApplicationManifest>app.manifest</ApplicationManifest>
+        <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectCapability Include="Avalonia" />
+        <TrimmerRootAssembly Include="Avalonia.Themes.Fluent" />
+    </ItemGroup>
+    <ItemGroup>
+        <AvaloniaResource Include="Image/**">
+        </AvaloniaResource>
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Avalonia" Version="0.10.19" />
+        <PackageReference Include="Avalonia.Desktop" Version="0.10.19" />
+        <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
+        <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="0.10.19" />
+        <PackageReference Include="MessageBox.Avalonia" Version="2.1.0" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.7" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.7">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="7.0.7" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.7">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.4" />
+        <PackageReference Include="XamlNameReferenceGenerator" Version="1.6.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Image\2G3280.jpg" />
+      <AvaloniaResource Include="Image\2G3280.jpg" />
+      <None Remove="Image\3L7RCZ.jpg" />
+      <AvaloniaResource Include="Image\3L7RCZ.jpg" />
+      <None Remove="Image\3XBOTN.jpeg" />
+      <AvaloniaResource Include="Image\3XBOTN.jpeg" />
+      <None Remove="Image\BPV4MM.jpg" />
+      <AvaloniaResource Include="Image\BPV4MM.jpg" />
+      <None Remove="Image\F895RB.jpg" />
+      <AvaloniaResource Include="Image\F895RB.jpg" />
+      <None Remove="Image\icon.ico" />
+      <AvaloniaResource Include="Image\icon.ico" />
+      <None Remove="Image\logo.png" />
+      <AvaloniaResource Include="Image\logo.png" />
+      <None Remove="Image\JVL42J.jpg" />
+      <AvaloniaResource Include="Image\JVL42J.jpg" />
+      <None Remove="Image\MIO8YV.jpg" />
+      <AvaloniaResource Include="Image\MIO8YV.jpg" />
+      <None Remove="Image\picture.png" />
+      <AvaloniaResource Include="Image\picture.png" />
+      <None Remove="Image\PMEZMH.jpg" />
+      <AvaloniaResource Include="Image\PMEZMH.jpg" />
+      <None Remove="Image\S72AM3.jpg" />
+      <AvaloniaResource Include="Image\S72AM3.jpg" />
+      <None Remove="Image\UER2QD.jpg" />
+      <AvaloniaResource Include="Image\UER2QD.jpg" />
+    </ItemGroup>
+</Project>

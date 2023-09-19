@@ -1,0 +1,267 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DemoStroi"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        Icon="Image\icon.ico"
+        MaxHeight="1080" MaxWidth="1920"
+        MinHeight="600" MinWidth="900"
+        WindowState="Maximized"
+        WindowStartupLocation="CenterScreen"
+        x:Class="DemoStroi.AdminWindow"
+        Title="ООО «Стройматериалы»">
+        
+        <Window.Resources>
+                <local:Convertor
+                        x:Key="ImageConvertor">
+                </local:Convertor>
+                
+                <local:checkCount
+                        x:Key="CheckCount">
+                </local:checkCount>
+                
+                <local:ConvertColor x:Key="ColorCon"></local:ConvertColor>
+        </Window.Resources>
+        
+        
+        <Grid ShowGridLines="False" ColumnDefinitions="*,*,*,*,*"
+              RowDefinitions="0.4*, 0.6*,0.2*,*,*,0.3*">
+        
+        <StackPanel Grid.ColumnSpan="10" Background="#76e383"></StackPanel>
+        <StackPanel Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="10" Background="#76e383"></StackPanel>
+        <StackPanel Grid.Row="5" Grid.ColumnSpan="10" Background="#76e383"></StackPanel>
+        
+            
+         <Image Grid.Column="0" Source="Image/logo.png"></Image>   
+            
+        <TextBlock Grid.Column="4" Text="Имя фамилия отчество" TextWrapping="Wrap"  TextAlignment="Center"
+                   VerticalAlignment="Center"
+                   Name="nameUser"
+                   Foreground="White"
+                   FontFamily="Comic Sans MS">
+        </TextBlock>
+        
+                <TextBlock Grid.Column="3"
+                           Grid.Row="2"
+                           Grid.ColumnSpan="2"
+                           VerticalAlignment="Center"
+                           Name="countProduct"
+                           FontSize="20"
+                           Foreground="White"
+                           TextAlignment="Center"
+                           FontFamily="Comic Sans MS">
+                </TextBlock>    
+            
+         <ComboBox Grid.Row="1" 
+                   VerticalAlignment="Center"
+                   VerticalContentAlignment="Center"
+                   HorizontalAlignment="Center"
+                   HorizontalContentAlignment="Center"
+                   Name="ComboBoxManufacture"
+                   BorderBrush="#498c51"
+                   BorderThickness="2"
+                   SelectionChanged="ComboBoxManufacture_OnSelectionChanged"
+                   Background="White"
+                   Foreground="#498c51">
+                 <ComboBox.ItemTemplate>
+                         <DataTemplate>
+                                 <TextBlock 
+                                         Text="{Binding Productmanufacturername}">
+                                 </TextBlock>
+                         </DataTemplate>
+                 </ComboBox.ItemTemplate>    
+         </ComboBox>
+            
+         <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Vertical"
+                     VerticalAlignment="Center">
+                 <TextBlock
+                         Foreground="White"
+                         TextAlignment="Center"
+                         FontSize="13"
+                         >Сортировка по стоимости</TextBlock>
+                 <ComboBox 
+                         Margin="0 10"
+                         HorizontalAlignment="Center"
+                         Name="ComboBoxPrice"
+                         BorderBrush="#498c51"
+                         BorderThickness="2"
+                         Background="White"
+                         SelectionChanged="ComboBoxPrice_OnSelectionChanged"
+                         Foreground="#498c51">
+                         <ComboBox.Items>
+                                 <TextBlock>-</TextBlock>
+                                 <TextBlock>По возрастанию</TextBlock>
+                                 <TextBlock>По убыванию</TextBlock>
+                         </ComboBox.Items>
+                 </ComboBox>
+         </StackPanel> 
+                
+        
+        <TextBox Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="2" 
+                 Watermark="Поиск" VerticalContentAlignment="Center"
+                 Height="40"
+                 BorderBrush="#498c51"
+                 BorderThickness="2"
+                 Name="searchBox"
+                 KeyUp="InputElement_OnKeyUp"
+                 Background="White"
+                 Foreground="#498c51"></TextBox>    
+            
+        <ListBox Grid.Row="3" Grid.RowSpan="2"
+                 Name="ListBoxData"
+                 SelectionChanged="ListBoxData_OnSelectionChanged"
+                 SelectionMode="Toggle"
+                     Grid.Column="0" Grid.ColumnSpan="5">
+                <ListBox.ItemTemplate>
+                        <DataTemplate>
+                        <Grid ColumnDefinitions="0.8*,*,0.8*" ShowGridLines="False"
+                              
+                              Background="{Binding Productquantityinstock, Converter={StaticResource ColorCon }}"
+                              RowDefinitions="*,*,*,*">
+                                
+                                <Image MaxHeight="200" MaxWidth="300"
+                                       HorizontalAlignment="Center"
+                                       Grid.RowSpan="4"
+                                       VerticalAlignment="Center"
+                                       Source="{Binding Productphoto , Converter={StaticResource ImageConvertor}}">
+                            </Image>
+                                
+                                <Border Grid.Column="0" Grid.ColumnSpan="3" BorderThickness="2"
+                                        Grid.RowSpan="4"
+                                        Margin="-10"
+                                        BorderBrush="Black">
+                                        
+                                        
+                                </Border>
+                                
+                                <TextBlock
+                                        Grid.Column="1"
+                                        HorizontalAlignment="Left"
+                                        Text="Наименование товара:"
+                                        FontFamily="Comic Sans MS"
+                                        VerticalAlignment="Center"
+                                        TextAlignment="Center"
+                                        FontSize="16">
+                                </TextBlock> 
+                                <TextBlock
+                                        Grid.Column="1"
+                                        HorizontalAlignment="Right"
+                                        FontFamily="Comic Sans MS"
+                                        VerticalAlignment="Center"
+                                        TextAlignment="Center"
+                                        TextWrapping="Wrap"
+                                        Text="{Binding Productname}"
+                                        >
+                                </TextBlock>
+                        
+                        
+                                <TextBlock Grid.Column="1"
+                                           Grid.Row="1"
+                                           HorizontalAlignment="Left"
+                                           Text="Описание товара:"
+                                           FontFamily="Comic Sans MS"
+                                           VerticalAlignment="Center"
+                                           TextAlignment="Center"
+                                           FontSize="16">
+                                </TextBlock> 
+                                
+                                <TextBlock Grid.Column="1"
+                                           Grid.Row="1"
+                                           MaxWidth="300"
+                                           HorizontalAlignment="Right"
+                                           FontFamily="Comic Sans MS"
+                                           TextWrapping="Wrap"
+                                           VerticalAlignment="Center"
+                                           TextAlignment="Center"
+                                           Text="{Binding Productdescription}">
+                                </TextBlock>
+                                
+                                <TextBlock Grid.Column="1"
+                                           Grid.Row="2"
+                                           HorizontalAlignment="Left"
+                                           Text="Производитель:"
+                                           FontFamily="Comic Sans MS"
+                                           VerticalAlignment="Center"
+                                           TextAlignment="Center"
+                                           FontSize="16">
+                                </TextBlock>
+                                
+                                <TextBlock Grid.Column="1"
+                                           Grid.Row="2"
+                                           HorizontalAlignment="Right"
+                                           FontFamily="Comic Sans MS"
+                                           TextWrapping="Wrap"
+                                           VerticalAlignment="Center"
+                                           TextAlignment="Center"
+                                           Text="{Binding Productmanufacturer}">
+                                </TextBlock>
+                        
+                        
+                       
+                                <TextBlock Grid.Column="1"
+                                           Grid.Row="3"
+                                           HorizontalAlignment="Left"
+                                           Text="Цена:"
+                                           VerticalAlignment="Center"
+                                           TextAlignment="Center"
+                                           FontFamily="Comic Sans MS"
+                                           FontSize="16">
+                                </TextBlock> 
+                                
+                                <TextBlock Grid.Column="1"
+                                           Grid.Row="3"
+                                           HorizontalAlignment="Right"
+                                           FontFamily="Comic Sans MS"
+                                           TextWrapping="Wrap"
+                                           VerticalAlignment="Center"
+                                           TextAlignment="Center"
+                                           Text="{Binding CheckPrice}">
+                                </TextBlock>
+                                
+                                <TextBlock  Grid.Column="2" Grid.Row="0" Grid.RowSpan="4"
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Center"
+                                            TextAlignment="Center"
+                                            FontSize="24"
+                                            FontFamily="Comic Sans MS"
+                                            Text="{Binding Productquantityinstock}">
+                                </TextBlock>
+                                
+                                
+                        </Grid>
+                        </DataTemplate>
+                </ListBox.ItemTemplate>
+        </ListBox>    
+            
+            
+        <Button  Grid.Row="5" HorizontalAlignment="Center"
+                 VerticalAlignment="Center"
+                 HorizontalContentAlignment="Center"
+                 VerticalContentAlignment="Center"
+                 Background="White"
+                 Foreground="#498c51"
+                 BorderBrush="#498c51"
+                 BorderThickness="2"
+                 Name="backMenu"
+                 Click="BackMenu_OnClick"
+                 Height="40"
+                 Width="120"
+                 Content="Выйти"
+                 FontFamily="Comic Sans MS"></Button>
+        
+        <Button  Grid.Column="1" Grid.Row="5"
+                 Content="Добавить товар"
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Center"
+                 VerticalContentAlignment="Center"
+                 HorizontalContentAlignment="Center"
+                 Background="White"
+                 BorderBrush="#498c51"
+                 BorderThickness="2"
+                 Foreground="#498c51"
+                 FontFamily="Comic Sans MS"
+                 Name="AddProduct"
+                 Click="AddProduct_OnClick"> </Button>
+    </Grid>
+</Window>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="DemoStroi/AddProduct.axaml" value="DemoStroi/DemoStroi.csproj" />
+        <entry key="DemoStroi/AdminWindow.axaml" value="DemoStroi/DemoStroi.csproj" />
+        <entry key="DemoStroi/App.axaml" value="DemoStroi/DemoStroi.csproj" />
+        <entry key="DemoStroi/Autorization.axaml" value="DemoStroi/DemoStroi.csproj" />
+        <entry key="DemoStroi/Captcha.axaml" value="DemoStroi/DemoStroi.csproj" />
+        <entry key="DemoStroi/CaptchaControlWin.axaml" value="DemoStroi/DemoStroi.csproj" />
+        <entry key="DemoStroi/MainWindow.axaml" value="DemoStroi/DemoStroi.csproj" />
+        <entry key="DemoStroi/RedactProductWindow.axaml" value="DemoStroi/DemoStroi.csproj" />
+        <entry key="DemoStroi/TEst.axaml" value="DemoStroi/DemoStroi.csproj" />
+        <entry key="DemoStroi/Tesd.axaml" value="DemoStroi/DemoStroi.csproj" />
+        <entry key="DemoStroi/UserWindow.axaml" value="DemoStroi/DemoStroi.csproj" />
+      </map>
+    </option>
+  </component>
+</project>

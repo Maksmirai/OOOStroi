@@ -1,0 +1,383 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DemoStroi"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="DemoStroi.RedactProductWindow"
+        Icon="Image\icon.ico"
+        MaxHeight="1080" MaxWidth="1920"
+        MinHeight="1000" MinWidth="1900"
+        WindowState="Maximized"
+        WindowStartupLocation="CenterScreen"
+        Title="ООО «Стройматериалы»">
+    
+    <Window.Resources>
+        <local:Convertor
+            x:Key="ImageConvertor">
+        </local:Convertor>
+    </Window.Resources>
+    
+        
+    <Grid ShowGridLines="False" RowDefinitions="0.3*,*,*,*,*,*,*,*,*,*,*,0.3*"
+          ColumnDefinitions="0.3*,*,*,0.3*">
+        
+        <Border BorderBrush="#498c51" BorderThickness="2" Grid.ColumnSpan="10" Background="#76e383"  ></Border>
+        <Border Grid.Row="11" BorderBrush="#498c51" BorderThickness="2" Grid.ColumnSpan="10" Background="#76e383"  ></Border>
+        
+        <TextBlock Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"
+                   Text="Редактирование товара"
+                   TextAlignment="Center"
+                   FontSize="22"
+                   FontFamily="Comic Sans MS"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   ></TextBlock>
+        
+            
+            <TextBlock Grid.Row="2" 
+                       Grid.Column="1"
+                       Text="Артикул товара товара"
+                       FontFamily="Comic Sans MS"
+                       VerticalAlignment="Top"
+                       FontSize="18"
+                       HorizontalAlignment="Left"
+            ></TextBlock>    
+            
+        
+        <TextBlock Grid.Row="2" Grid.Column="1" 
+                 VerticalAlignment="Center"
+                 TextAlignment="Left"
+                 FontSize="17"
+                 FontFamily="Comic Sans MS"
+                 Name="ArticulProdct"
+                 Text="{Binding Productarticlenumber}"
+                 ></TextBlock>
+        
+            <TextBlock Grid.Row="3" 
+                       Grid.Column="1"
+                       Text="Название товара"
+                       FontFamily="Comic Sans MS"
+                       VerticalAlignment="Top"
+                       FontSize="18"
+                       HorizontalAlignment="Left"
+            ></TextBlock>    
+            
+        <TextBox Grid.Row="3" Grid.Column="1" 
+                 VerticalAlignment="Center"
+                 BorderBrush="#498c51"
+                 BorderThickness="2"
+                 TextAlignment="Left"
+                 FontSize="17"
+                 MaxLength="20"
+                 FontFamily="Comic Sans MS"
+                 Name="NameProduct"
+                 Text="{Binding Productname}"
+        ></TextBox>
+        
+        <TextBlock Grid.Row="4" 
+                   Grid.Column="1"
+                   Text="Категория товара"
+                   FontFamily="Comic Sans MS"
+                   VerticalAlignment="Center"
+                   FontSize="16"
+                   HorizontalAlignment="Left"
+                   ></TextBlock>
+        
+        <ComboBox 
+            Grid.Row="4" 
+            Grid.Column="1"
+            VerticalAlignment="Center"
+            Name="CategoryBox"
+            FontSize="16"
+            BorderBrush="#498c51"
+            BorderThickness="2"
+            HorizontalAlignment="Right">
+            
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock 
+                        Text="{Binding Categoryproductname}">
+                    </TextBlock>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+            
+        </ComboBox>
+        
+        
+        <TextBlock Grid.Row="5" 
+                   Grid.Column="1"
+                   Text="Производитель"
+                   FontSize="16"
+                   FontFamily="Comic Sans MS"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Left"
+        ></TextBlock>
+        
+        <ComboBox Grid.Row="5" Grid.Column="1"
+                  Name="ManufactureBox"
+                  VerticalAlignment="Center"
+                  FontSize="16"
+                  BorderBrush="#498c51"
+                  BorderThickness="2"
+                  HorizontalAlignment="Right">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock 
+                        Text="{Binding Productmanufacturername}">
+                    </TextBlock>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        
+        <TextBlock Grid.Row="6" 
+                   Grid.Column="1"
+                   Text="Поставщик"
+                   FontSize="16"
+                   FontFamily="Comic Sans MS"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Left"
+        ></TextBlock>
+        
+        <ComboBox Grid.Row="6" Grid.Column="1"
+                  Name="suplierBox"
+                  BorderBrush="#498c51"
+                  BorderThickness="2"
+                  FontSize="16"
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Right">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock 
+                        Text="{Binding Productsuppliername}">
+                    </TextBlock>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        
+        
+        <TextBlock Grid.Row="2" 
+                   Grid.Column="2"
+                   Margin="10 0 0 0"
+                   Text="Еденица измерения"
+                   FontFamily="Comic Sans MS"
+                   FontSize="16"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Left"
+        ></TextBlock>
+        
+        <ComboBox Grid.Row="2" Grid.Column="2"
+                  Name="unitProductBox"
+                  BorderBrush="#498c51"
+                  FontSize="16"
+                  BorderThickness="2"
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Right">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock 
+                        Text="{Binding Unitproductname}">
+                    </TextBlock>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        
+            <TextBlock Grid.Row="3" 
+                       Grid.Column="2"
+                       Margin="10 0 0 0"
+                       Text="Стоимость товара"
+                       FontFamily="Comic Sans MS"
+                       VerticalAlignment="Top"
+                       FontSize="18"
+                       HorizontalAlignment="Left"
+            ></TextBlock>   
+            
+        <TextBox Grid.Row="3" Grid.Column="2" 
+                 Margin="10 0 0 0"
+                 VerticalAlignment="Center"
+                 FontSize="17"
+                 Text="{Binding Productcost}"
+                 BorderBrush="#498c51"
+                 BorderThickness="2"
+                 Name="priceProduct"
+                 TextAlignment="Left"
+                 MaxLength="20"
+                 FontFamily="Comic Sans MS"
+                 
+        ></TextBox>
+        
+            
+            <TextBlock Grid.Row="4" 
+                       Grid.Column="2"
+                       Margin="10 0 0 0"
+                       Text="Максимальная скидка"
+                       FontFamily="Comic Sans MS"
+                       VerticalAlignment="Top"
+                       FontSize="18"
+                       HorizontalAlignment="Left"
+            ></TextBlock>     
+            
+        <TextBox Grid.Row="4" Grid.Column="2" 
+                 Margin="10 0 0 0"
+                 VerticalAlignment="Center"
+                 FontSize="17"
+                 Text="{Binding Productmaxdiscount}"
+                 BorderBrush="#498c51"
+                 Name="maxDiscount"
+                 BorderThickness="2"
+                 TextAlignment="Left"
+                 MaxLength="20"
+                 FontFamily="Comic Sans MS"
+                 
+        ></TextBox>
+        
+        <TextBlock Grid.Row="5" 
+                   Grid.Column="2"
+                   Margin="10 0 0 0"
+                   Text="Действующая скидка"
+                   FontFamily="Comic Sans MS"
+                   VerticalAlignment="Top"
+                   FontSize="18"
+                   HorizontalAlignment="Left"
+        ></TextBlock>     
+            
+        <TextBox Grid.Row="5" Grid.Column="2" 
+                 Margin="10 0 0 0"
+                 FontSize="17"
+                 VerticalAlignment="Center"
+                 Name="discountNow"
+                 Text="{Binding Productdiscountamount}"
+                 BorderBrush="#498c51"
+                 BorderThickness="2"
+                 TextAlignment="Left"
+                 MaxLength="20"
+                 FontFamily="Comic Sans MS"
+        ></TextBox>
+        
+        <TextBlock Grid.Row="6" 
+                   Grid.Column="2"
+                   Margin="10 0 0 0"
+                   Text="Описание товара"
+                   FontFamily="Comic Sans MS"
+                   VerticalAlignment="Top"
+                   FontSize="18"
+                   HorizontalAlignment="Left"
+        ></TextBlock>   
+            
+        <TextBox Grid.Row="6" Grid.Column="2" 
+                 Margin="10 0 0 0"
+                 VerticalAlignment="Center"
+                 FontSize="17"
+                 Name="descriptionProduct"
+                 Text="{Binding Productdescription}"
+                 BorderBrush="#498c51"
+                 BorderThickness="2"
+                 TextAlignment="Left"
+                 MaxLength="80"
+                 FontFamily="Comic Sans MS"
+        ></TextBox>
+        
+            <TextBlock Grid.Row="7" 
+                       Grid.Column="1"
+                       Text="Количество товара на складе"
+                       FontFamily="Comic Sans MS"
+                       VerticalAlignment="Top"
+                       FontSize="18"
+                       HorizontalAlignment="Left"
+            ></TextBlock> 
+        
+        <TextBox Grid.Row="7" Grid.Column="1" 
+                 VerticalAlignment="Center"
+                 BorderBrush="#498c51"
+                 FontSize="17"
+                 Text="{Binding Productquantityinstock}"
+                 BorderThickness="2"
+                 Name="countInStock"
+                 TextAlignment="Left"
+                 MaxLength="20"
+                 FontFamily="Comic Sans MS"
+        ></TextBox>
+        
+        
+        
+        <Button Grid.Row="8" Grid.Column="1" 
+                Content="Добавить фото"
+                Background="White"
+                BorderBrush="#498c51"
+                FontSize="16"
+                Click="ButtonAddPhoto_OnClick"
+                FontFamily="Comic Sans MS"
+                BorderThickness="2"
+                Name="ButtonAddPhoto"
+                ></Button>
+        
+        <TextBlock Grid.Column="1" Grid.Row="8"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   FontFamily="Comic Sans MS"
+                   Name="imageName"
+                   FontSize="18"></TextBlock>
+        
+        <Image Grid.Row="8" Grid.RowSpan="2"
+               Grid.Column="1" 
+               Name="ImageProduct"
+               MaxWidth="300"
+               MaxHeight="200"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Right"
+               Source="{Binding Productphoto , Converter={StaticResource ImageConvertor}}">
+            
+        </Image>
+        
+        <Button Grid.Row="10" Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Content="Вернуться назад"
+                Background="White"
+                BorderBrush="#498c51"
+                BorderThickness="2"
+                VerticalAlignment="Center"
+                FontSize="16"
+                Click="ButtonBackToMenu_OnClick"
+                Name="ButtonBackToMenu"
+                HorizontalAlignment="Center"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                FontFamily="Comic Sans MS"></Button>
+            
+            <Button Grid.Row="10" Grid.Column="1"
+                    Grid.ColumnSpan="2"
+                    Content="удалить товар"
+                    Background="IndianRed"
+                    BorderBrush="#498c51"
+                    BorderThickness="2"
+                    VerticalAlignment="Center"
+                    FontSize="16"
+                    Click="DelProduct_OnClick"
+                    Name="delProduct"
+                    HorizontalAlignment="Center"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    FontFamily="Comic Sans MS">
+                
+            </Button>
+            
+        
+        <Button Grid.Row="10" Grid.Column="2"
+                Grid.ColumnSpan="2"
+                Content="Обновить данные о товаре"
+                Background="White"
+                BorderBrush="#498c51"
+                BorderThickness="2"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                FontSize="16"
+                Click="ButtonAddProduct_OnClick"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                FontFamily="Comic Sans MS"
+                Name="ButtonAddProduct"></Button>
+        
+        
+    </Grid>
+    
+</Window>
